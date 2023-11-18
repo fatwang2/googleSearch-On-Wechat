@@ -61,7 +61,10 @@ class GoogleSearch(Plugin):
             'X-API-KEY': self.serper_api_key,
             'Content-Type': 'application/json; charset=utf-8'
         }
-
+        # 调试信息：打印请求的详细内容
+        print("URL:", url)
+        print("Headers:", headers)
+        print("Payload:", payload)
         response = requests.request("POST", url, headers=headers, data=payload)
         logger.info(response.text);
         query += response.text + "\n----------------\n"
